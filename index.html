@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,21 +6,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Year 8 Math Concept Challenge</title>
 <style>
+
 :root{
-  --bg:#eef3fb;
+  --bg:#f4f8ff;
   --panel:#ffffff;
-  --text:#1f2937;
-  --muted:#6b7280;
-  --line:#d9e2ef;
-  --accent:#2f67d8;
-  --accent-dark:#214da9;
-  --accent-soft:#eaf1ff;
-  --good:#16a34a;
-  --good-dark:#0f7a37;
+  --text:#1e2550;
+  --muted:#596483;
+  --line:#d9e2ff;
+  --accent:#6c5ce7;
+  --accent-dark:#4f46c9;
+  --accent-soft:#efeaff;
+  --good:#22c55e;
+  --good-dark:#157f3d;
   --good-soft:#dcfce7;
-  --bad:#dc2626;
+  --bad:#ef4444;
   --bad-soft:#fee2e2;
-  --shadow:0 18px 44px rgba(31,41,55,.11);
+  --gold:#f59e0b;
+  --cyan:#06b6d4;
+  --pink:#ec4899;
+  --orange:#fb7185;
+  --shadow:0 18px 44px rgba(76,88,140,.16);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -29,12 +35,14 @@ body{
   font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   color:var(--text);
   background:
-    radial-gradient(circle at 8% 2%,rgba(47,103,216,.12),transparent 26rem),
-    radial-gradient(circle at 92% 12%,rgba(80,119,211,.08),transparent 22rem),
-    linear-gradient(180deg,#f7f9fd 0%,var(--bg) 100%);
+    radial-gradient(circle at 8% 8%, rgba(34,197,94,.18), transparent 16rem),
+    radial-gradient(circle at 88% 10%, rgba(236,72,153,.18), transparent 17rem),
+    radial-gradient(circle at 15% 88%, rgba(6,182,212,.14), transparent 18rem),
+    radial-gradient(circle at 90% 82%, rgba(245,158,11,.18), transparent 16rem),
+    linear-gradient(135deg,#e8f0ff 0%,#fdf2ff 48%,#eefbf9 100%);
 }
 button{font:inherit}
-button:focus-visible{outline:3px solid rgba(47,103,216,.34);outline-offset:3px}
+button:focus-visible{outline:3px solid rgba(108,92,231,.32);outline-offset:3px}
 .app{
   width:min(1000px,94vw);
   margin:0 auto;
@@ -47,32 +55,42 @@ button:focus-visible{outline:3px solid rgba(47,103,216,.34);outline-offset:3px}
   gap:18px;
   margin-bottom:18px;
 }
-.title-wrap{min-width:0}
+.title-wrap{
+  min-width:0;
+  padding:18px 20px;
+  border:1px solid rgba(255,255,255,.72);
+  border-radius:24px;
+  background:linear-gradient(135deg,rgba(255,255,255,.82),rgba(255,255,255,.68));
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(6px);
+}
 h1{
   margin:0;
   font-size:clamp(1.7rem,3.2vw,2.5rem);
   line-height:1.02;
   letter-spacing:-.04em;
+  color:#2b2f7b;
 }
 .subtitle{
   margin:8px 0 0;
-  color:var(--muted);
-  font-size:.95rem;
+  color:#5c6590;
+  font-size:.98rem;
+  font-weight:700;
 }
 .top-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
 .small-btn{
-  min-height:42px;
-  padding:9px 14px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  background:#fff;
-  color:#334155;
-  font-weight:800;
+  min-height:44px;
+  padding:10px 15px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.75);
+  background:linear-gradient(135deg,#ffb703,#fb8500);
+  color:#fff;
+  font-weight:900;
   cursor:pointer;
-  box-shadow:0 5px 14px rgba(31,41,55,.05);
-  transition:transform .14s ease,background .14s ease,border-color .14s ease;
+  box-shadow:0 10px 22px rgba(251,133,0,.26);
+  transition:transform .14s ease,filter .14s ease,box-shadow .14s ease;
 }
-.small-btn:hover{transform:translateY(-1px);background:#f8fafc;border-color:#c8d5e7}
+.small-btn:hover{transform:translateY(-1px) scale(1.01);filter:saturate(1.04);box-shadow:0 13px 24px rgba(251,133,0,.32)}
 
 .chapter-picker{
   position:relative;
@@ -84,99 +102,107 @@ h1{
 }
 .chapter-trigger{
   width:100%;
-  min-height:52px;
-  padding:9px 14px;
+  min-height:56px;
+  padding:11px 15px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:14px;
-  border:1px solid #d5dfed;
-  border-radius:14px;
-  background:#fff;
-  color:#334155;
+  border:1px solid rgba(255,255,255,.75);
+  border-radius:18px;
+  background:linear-gradient(135deg,#6c5ce7,#4facfe);
+  color:#fff;
   text-align:left;
   cursor:pointer;
-  box-shadow:0 5px 14px rgba(31,41,55,.045);
-  transition:transform .14s ease,background .16s ease,border-color .16s ease,box-shadow .16s ease;
+  box-shadow:0 12px 26px rgba(79,70,201,.22);
+  transition:transform .14s ease,box-shadow .16s ease,filter .16s ease;
 }
 .chapter-trigger:hover{
   transform:translateY(-1px);
-  border-color:#b8c9e4;
-  background:#f7f9fe;
+  box-shadow:0 16px 30px rgba(79,70,201,.28);
+  filter:saturate(1.06);
 }
 .chapter-trigger-copy{min-width:0}
 .chapter-trigger-en{display:block;font-weight:900}
-.chapter-trigger-sv{display:block;margin-top:2px;color:#718096;font-size:.72rem;font-weight:750}
+.chapter-trigger-sv{display:block;margin-top:2px;color:rgba(255,255,255,.82);font-size:.75rem;font-weight:750}
 .chapter-chevron{
   flex:0 0 auto;
   font-size:1rem;
-  color:#5d6d84;
+  color:#fff;
   transition:transform .18s ease;
 }
 .chapter-trigger[aria-expanded="true"] .chapter-chevron{transform:rotate(180deg)}
 .chapter-menu{
   position:absolute;
   z-index:30;
-  top:calc(100% + 7px);
+  top:calc(100% + 8px);
   left:0;
   width:100%;
   display:none;
-  gap:6px;
-  padding:8px;
-  border:1px solid #d5dfed;
-  border-radius:15px;
-  background:#fff;
-  box-shadow:0 16px 36px rgba(31,41,55,.16);
+  gap:8px;
+  padding:10px;
+  border:1px solid rgba(255,255,255,.78);
+  border-radius:18px;
+  background:rgba(255,255,255,.92);
+  box-shadow:0 18px 36px rgba(76,88,140,.20);
+  backdrop-filter:blur(10px);
 }
 .chapter-menu.show{display:grid}
 .chapter-btn{
   width:100%;
-  min-height:52px;
-  padding:9px 12px;
-  border:1px solid transparent;
-  border-radius:11px;
-  background:#f8fafc;
-  color:#334155;
+  min-height:56px;
+  padding:10px 13px;
+  border:1px solid rgba(255,255,255,.45);
+  border-radius:13px;
+  color:#24324d;
   text-align:left;
   font-weight:900;
   cursor:pointer;
-  transition:background .14s ease,border-color .14s ease,color .14s ease;
+  transition:transform .14s ease,box-shadow .14s ease,filter .14s ease,border-color .14s ease;
+  box-shadow:0 8px 18px rgba(76,88,140,.09);
 }
-.chapter-btn:hover{background:#eef4ff;border-color:#d5e1f4}
+.chapter-btn:nth-child(1){background:linear-gradient(135deg,#fde68a,#fca5a5)}
+.chapter-btn:nth-child(2){background:linear-gradient(135deg,#bfdbfe,#c4b5fd)}
+.chapter-btn:nth-child(3){background:linear-gradient(135deg,#a7f3d0,#93c5fd)}
+.chapter-btn:nth-child(4){background:linear-gradient(135deg,#fbcfe8,#fdba74)}
+.chapter-btn:hover{transform:translateY(-1px);filter:saturate(1.05);border-color:rgba(76,88,140,.18)}
 .chapter-btn.active{
   color:#fff;
-  border-color:var(--accent);
-  background:linear-gradient(145deg,var(--accent),var(--accent-dark));
+  border-color:transparent;
+  background:linear-gradient(135deg,#4338ca,#7c3aed);
+  box-shadow:0 12px 24px rgba(67,56,202,.28);
 }
 .chapter-btn-sv{
   display:block;
   margin-top:2px;
   font-size:.72rem;
   font-weight:750;
-  opacity:.78;
+  opacity:.82;
 }
+
 .section-strip{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:14px;
-  padding:13px 15px;
+  padding:14px 16px;
   margin-bottom:14px;
-  border:1px solid #d8e4f6;
-  border-radius:15px;
-  background:linear-gradient(135deg,#f5f8ff,#edf3ff);
+  border:1px solid rgba(255,255,255,.72);
+  border-radius:18px;
+  background:linear-gradient(135deg,rgba(255,255,255,.85),rgba(232,240,255,.82));
+  box-shadow:var(--shadow);
 }
-.section-name{font-weight:900;color:#284b88}
-.section-sv{margin-top:3px;color:#62718a;font-size:.82rem;font-weight:700}
+.section-name{font-weight:950;color:#6d28d9}
+.section-sv{margin-top:3px;color:#52717d;font-size:.83rem;font-weight:800}
 .round-chip{
   flex:0 0 auto;
-  padding:7px 10px;
+  padding:8px 12px;
   border-radius:999px;
-  background:#fff;
-  border:1px solid #d7e1ef;
-  color:#4d5f79;
+  background:linear-gradient(135deg,#ecfeff,#cffafe);
+  border:1px solid #a5f3fc;
+  color:#0f766e;
   font-size:.76rem;
-  font-weight:850;
+  font-weight:900;
 }
 .hud{
   display:grid;
@@ -190,24 +216,28 @@ h1{
   justify-content:space-between;
   gap:12px;
   margin-bottom:7px;
-  color:#5e6d82;
+  color:#49577c;
   font-size:.84rem;
-  font-weight:800;
+  font-weight:900;
 }
 .progress-track{
-  height:9px;
+  height:12px;
   border-radius:999px;
-  background:#dfe6f0;
+  background:rgba(255,255,255,.76);
   overflow:hidden;
-  box-shadow:inset 0 1px 2px rgba(31,41,55,.08);
+  box-shadow:inset 0 2px 4px rgba(31,41,55,.08);
+  border:1px solid rgba(195,209,255,.75);
 }
 .progress-fill{
   width:0%;
   height:100%;
   border-radius:inherit;
-  background:linear-gradient(90deg,#2f67d8,#5f86e4);
+  background:linear-gradient(90deg,#22c55e,#06b6d4,#6c5ce7,#ec4899);
+  background-size:220% 100%;
   transition:width .35s cubic-bezier(.2,.8,.2,1);
+  animation:progressFlow 5s linear infinite;
 }
+@keyframes progressFlow{to{background-position:220% 0}}
 .stats{
   display:flex;
   gap:8px;
@@ -215,34 +245,48 @@ h1{
   justify-content:flex-end;
 }
 .stat{
-  min-width:80px;
-  padding:8px 10px;
-  border:1px solid var(--line);
-  border-radius:13px;
-  background:rgba(255,255,255,.88);
+  min-width:88px;
+  padding:9px 11px;
+  border:1px solid rgba(255,255,255,.74);
+  border-radius:16px;
   text-align:center;
-  box-shadow:0 5px 14px rgba(31,41,55,.05);
+  box-shadow:0 8px 18px rgba(76,88,140,.10);
 }
-.stat-value{font-size:1.08rem;font-weight:950;line-height:1;color:#263a5a}
-.stat-label{margin-top:4px;color:#718096;font-size:.66rem;font-weight:850;letter-spacing:.05em;text-transform:uppercase}
+.stat:nth-child(1){background:linear-gradient(135deg,#dbeafe,#c4b5fd)}
+.stat:nth-child(2){background:linear-gradient(135deg,#fef3c7,#fdba74)}
+.stat:nth-child(3){background:linear-gradient(135deg,#fee2e2,#fecaca)}
+.stat-value{font-size:1.12rem;font-weight:950;line-height:1;color:#203253}
+.stat-label{margin-top:4px;color:#536178;font-size:.66rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase}
 .quiz-shell{
   position:relative;
   overflow:hidden;
-  border:1px solid var(--line);
-  border-radius:24px;
-  background:rgba(255,255,255,.94);
+  border:1px solid rgba(255,255,255,.75);
+  border-radius:28px;
+  background:rgba(255,255,255,.86);
   box-shadow:var(--shadow);
+  backdrop-filter:blur(8px);
 }
 .quiz-shell::before{
   content:"";
   position:absolute;
   inset:0 0 auto 0;
-  height:4px;
-  background:linear-gradient(90deg,#2f67d8,#7f9ee8,#2f67d8);
-  background-size:180% 100%;
-  animation:headerFlow 5s linear infinite;
+  height:7px;
+  background:linear-gradient(90deg,#22c55e,#06b6d4,#6c5ce7,#ec4899,#f59e0b,#22c55e);
+  background-size:220% 100%;
+  animation:headerFlow 6s linear infinite;
 }
-@keyframes headerFlow{to{background-position:180% 0}}
+.quiz-shell::after{
+  content:"";
+  position:absolute;
+  right:-60px;
+  top:-55px;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(236,72,153,.12) 0%, rgba(236,72,153,0) 70%);
+  pointer-events:none;
+}
+@keyframes headerFlow{to{background-position:220% 0}}
 .quiz-inner{padding:clamp(22px,4vw,42px)}
 .question-kicker{
   display:flex;
@@ -252,22 +296,22 @@ h1{
   margin-bottom:18px;
 }
 .kicker-text{
-  color:var(--accent);
-  font-size:.76rem;
+  color:#ec4899;
+  font-size:.78rem;
   font-weight:900;
   letter-spacing:.08em;
   text-transform:uppercase;
 }
 .question-badge{
-  padding:6px 9px;
-  border-radius:9px;
-  background:var(--accent-soft);
-  color:#34578e;
+  padding:7px 10px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#eef2ff,#ddd6fe);
+  color:#4c1d95;
   font-size:.72rem;
   font-weight:900;
 }
 .question-block{
-  padding:2px 0 7px;
+  padding:6px 0 8px;
   text-align:center;
 }
 .question-en{
@@ -275,23 +319,23 @@ h1{
   font-size:clamp(1.35rem,3vw,2rem);
   line-height:1.22;
   letter-spacing:-.025em;
-  font-weight:900;
+  font-weight:950;
   color:#1f2c42;
 }
 .translation-divider{
-  width:54px;
-  height:2px;
-  margin:13px auto 12px;
+  width:72px;
+  height:5px;
+  margin:14px auto 13px;
   border-radius:999px;
-  background:#d8e3f4;
+  background:linear-gradient(90deg,#22c55e,#06b6d4,#6c5ce7,#ec4899);
 }
 .question-sv{
   margin:0 auto;
   max-width:800px;
-  color:#66758a;
-  font-size:clamp(.98rem,2vw,1.17rem);
+  color:#5c6590;
+  font-size:clamp(1rem,2vw,1.18rem);
   line-height:1.35;
-  font-weight:700;
+  font-weight:800;
 }
 .options{
   display:grid;
@@ -302,55 +346,58 @@ h1{
 .option{
   position:relative;
   width:100%;
-  min-height:108px;
+  min-height:112px;
   overflow:hidden;
   display:flex;
   align-items:flex-start;
   gap:13px;
   padding:15px 16px;
-  border:1px solid #d7e1ee;
-  border-radius:16px;
-  background:linear-gradient(180deg,#ffffff,#f7f9fc);
+  border:1px solid rgba(255,255,255,.8);
+  border-radius:18px;
   color:#26344c;
   text-align:left;
   cursor:pointer;
-  box-shadow:0 7px 16px rgba(31,41,55,.055);
-  transition:transform .16s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease,filter .18s ease;
+  box-shadow:0 10px 20px rgba(76,88,140,.10);
+  transition:transform .16s ease,border-color .18s ease,box-shadow .18s ease,filter .18s ease;
 }
+.option:nth-child(1){background:linear-gradient(135deg,#dbeafe,#e9d5ff)}
+.option:nth-child(2){background:linear-gradient(135deg,#dcfce7,#cffafe)}
+.option:nth-child(3){background:linear-gradient(135deg,#fef3c7,#fde68a)}
+.option:nth-child(4){background:linear-gradient(135deg,#fce7f3,#fecdd3)}
 .option:hover:not(:disabled){
-  transform:translateY(-2px);
-  border-color:#acc0e4;
-  background:linear-gradient(180deg,#fff,#f1f5ff);
-  box-shadow:0 10px 20px rgba(47,103,216,.10);
+  transform:translateY(-3px) scale(1.01);
+  box-shadow:0 14px 24px rgba(76,88,140,.14);
+  filter:saturate(1.05);
 }
 .option:disabled{cursor:default}
 .option-letter{
-  width:31px;
-  height:31px;
-  flex:0 0 31px;
+  width:33px;
+  height:33px;
+  flex:0 0 33px;
   display:grid;
   place-items:center;
-  border-radius:10px;
-  background:#e8eef8;
+  border-radius:11px;
+  background:rgba(255,255,255,.9);
   color:#375b91;
   font-size:.82rem;
   font-weight:950;
+  box-shadow:0 4px 10px rgba(76,88,140,.08);
   transition:background .18s ease,color .18s ease,transform .18s ease;
 }
 .option-copy{min-width:0;padding-top:1px}
-.option-en{font-size:.94rem;line-height:1.28;font-weight:850;color:#26344c}
-.option-sv{margin-top:6px;font-size:.79rem;line-height:1.3;font-weight:650;color:#718096}
+.option-en{font-size:.95rem;line-height:1.28;font-weight:900;color:#24324d}
+.option-sv{margin-top:6px;font-size:.8rem;line-height:1.3;font-weight:750;color:#596483}
 .option.correct{
-  border-color:rgba(22,163,74,.62);
-  background:linear-gradient(135deg,#f5fff8,#dcfce7);
-  box-shadow:0 0 0 3px rgba(22,163,74,.10),0 14px 30px rgba(22,163,74,.18);
+  border-color:rgba(34,197,94,.62);
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);
+  box-shadow:0 0 0 4px rgba(34,197,94,.12),0 16px 30px rgba(34,197,94,.18);
   animation:correctLift .62s cubic-bezier(.2,.8,.2,1);
 }
 .option.correct::after{
   content:"";
   position:absolute;
   inset:-40%;
-  background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.75) 49%,transparent 58%);
+  background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.78) 49%,transparent 58%);
   transform:translateX(-75%) rotate(5deg);
   animation:shine .68s ease-out forwards;
   pointer-events:none;
@@ -360,14 +407,14 @@ h1{
 .option.correct .option-sv{color:#35724b}
 @keyframes correctLift{
   0%{transform:scale(1)}
-  38%{transform:scale(1.025)}
+  38%{transform:scale(1.03)}
   100%{transform:scale(1)}
 }
 @keyframes shine{to{transform:translateX(75%) rotate(5deg)}}
 .option.wrong{
-  border-color:rgba(220,38,38,.48);
-  background:linear-gradient(135deg,#fff8f8,#fee2e2);
-  box-shadow:0 0 0 3px rgba(220,38,38,.07);
+  border-color:rgba(239,68,68,.54);
+  background:linear-gradient(135deg,#fff5f5,#fee2e2);
+  box-shadow:0 0 0 4px rgba(239,68,68,.08);
   animation:wrongShake .38s ease;
 }
 .option.wrong .option-letter{background:var(--bad);color:#fff}
@@ -391,41 +438,44 @@ h1{
   align-items:center;
   justify-content:center;
   gap:10px;
-  min-height:44px;
-  padding:9px 14px;
-  border-radius:14px;
+  min-height:46px;
+  padding:9px 15px;
+  border-radius:16px;
   font-weight:900;
   opacity:0;
   transform:translateY(4px) scale(.98);
   transition:opacity .18s ease,transform .18s ease;
 }
 .feedback.show{opacity:1;transform:translateY(0) scale(1)}
-.feedback.good{color:var(--good-dark);background:#ecfdf3;border:1px solid #bceccf}
-.feedback.bad{color:#b42318;background:#fff3f2;border:1px solid #ffd0cc}
+.feedback.good{color:var(--good-dark);background:#ecfdf3;border:1px solid #bbf7d0;box-shadow:0 10px 18px rgba(34,197,94,.10)}
+.feedback.bad{color:#b42318;background:#fff3f2;border:1px solid #fecaca;box-shadow:0 10px 18px rgba(239,68,68,.09)}
 .feedback-icon{
-  width:27px;height:27px;border-radius:50%;display:grid;place-items:center;
+  width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
   font-size:.86rem;font-weight:950;color:#fff;
 }
 .feedback.good .feedback-icon{background:var(--good)}
 .feedback.bad .feedback-icon{background:var(--bad)}
 .feedback-copy{line-height:1.1}
-.feedback-sv{display:block;margin-top:3px;font-size:.74rem;font-weight:800;opacity:.78}
+.feedback-sv{display:block;margin-top:3px;font-size:.74rem;font-weight:800;opacity:.8}
 .celebration-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .spark{
   position:absolute;
   left:50%;
   top:52%;
-  width:8px;
-  height:8px;
-  border-radius:2px;
+  width:10px;
+  height:10px;
+  border-radius:3px;
   opacity:0;
   background:var(--good);
   animation:sparkBurst .72s ease-out forwards;
 }
+.spark:nth-child(3n){background:var(--cyan)}
+.spark:nth-child(4n){background:var(--pink)}
+.spark:nth-child(5n){background:var(--gold)}
 @keyframes sparkBurst{
   0%{opacity:1;transform:translate(-50%,-50%) rotate(0) scale(.6)}
   75%{opacity:1}
-  100%{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) rotate(var(--r)) scale(1.05)}
+  100%{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) rotate(var(--r)) scale(1.08)}
 }
 .completion{
   display:none;
@@ -435,20 +485,20 @@ h1{
 .completion.show{display:block;animation:completionIn .42s ease both}
 @keyframes completionIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .trophy{
-  width:76px;
-  height:76px;
+  width:82px;
+  height:82px;
   display:grid;
   place-items:center;
   margin:0 auto 13px;
   border-radius:24px;
-  background:linear-gradient(145deg,#edf3ff,#dfe9ff);
-  border:1px solid #cfdcf4;
-  color:var(--accent);
-  font-size:2.1rem;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 10px 24px rgba(47,103,216,.10);
+  background:linear-gradient(145deg,#fef3c7,#fde68a);
+  border:1px solid #fcd34d;
+  color:#b45309;
+  font-size:2.2rem;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 12px 26px rgba(245,158,11,.18);
 }
-.completion h2{margin:0;font-size:clamp(1.65rem,3vw,2.1rem);letter-spacing:-.025em}
-.completion p{margin:8px auto 22px;max-width:570px;color:var(--muted);line-height:1.45}
+.completion h2{margin:0;font-size:clamp(1.7rem,3vw,2.15rem);letter-spacing:-.025em;color:#2b2f7b}
+.completion p{margin:8px auto 22px;max-width:570px;color:#5f6a88;line-height:1.45;font-weight:700}
 .results{
   width:min(520px,100%);
   margin:0 auto 22px;
@@ -458,45 +508,48 @@ h1{
 }
 .result-box{
   padding:15px 10px;
-  border:1px solid var(--line);
-  border-radius:15px;
-  background:#f8fafc;
+  border:1px solid rgba(255,255,255,.74);
+  border-radius:16px;
 }
+.result-box:nth-child(1){background:linear-gradient(135deg,#dbeafe,#c4b5fd)}
+.result-box:nth-child(2){background:linear-gradient(135deg,#fee2e2,#fecaca)}
+.result-box:nth-child(3){background:linear-gradient(135deg,#dcfce7,#a7f3d0)}
 .result-value{font-size:1.5rem;font-weight:950;line-height:1;color:#263a5a}
-.result-label{margin-top:6px;color:#768398;font-size:.68rem;font-weight:850;letter-spacing:.04em;text-transform:uppercase}
-.result-box.wrong .result-value{color:var(--bad)}
+.result-label{margin-top:6px;color:#5a6784;font-size:.68rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase}
+.result-box.wrong .result-value{color:#c02626}
 .primary-btn{
-  min-height:46px;
-  padding:11px 17px;
+  min-height:48px;
+  padding:11px 18px;
   border:0;
-  border-radius:13px;
-  background:linear-gradient(145deg,var(--accent),var(--accent-dark));
+  border-radius:15px;
+  background:linear-gradient(135deg,#ec4899,#8b5cf6);
   color:#fff;
   font-weight:900;
   cursor:pointer;
-  box-shadow:0 9px 20px rgba(47,103,216,.24);
-  transition:transform .15s ease,box-shadow .15s ease;
+  box-shadow:0 12px 24px rgba(139,92,246,.24);
+  transition:transform .15s ease,box-shadow .15s ease,filter .15s ease;
 }
-.primary-btn:hover{transform:translateY(-1px);box-shadow:0 12px 24px rgba(47,103,216,.28)}
+.primary-btn:hover{transform:translateY(-1px);box-shadow:0 14px 28px rgba(139,92,246,.28);filter:saturate(1.04)}
 @media (max-width:760px){
   .topbar{align-items:flex-start}
   .hud{grid-template-columns:1fr}
   .stats{justify-content:flex-start}
   .options{grid-template-columns:1fr}
-  .option{min-height:92px}
+  .option{min-height:96px}
 }
 @media (max-width:500px){
   .app{width:min(94vw,100%);padding-top:16px}
   .topbar{display:block}
+  .title-wrap{padding:16px 16px 17px}
   .top-actions{justify-content:flex-start;margin-top:12px}
   .section-strip{align-items:flex-start;flex-direction:column}
   .round-chip{align-self:flex-start}
-  .quiz-shell{border-radius:18px}
+  .quiz-shell{border-radius:20px}
   .quiz-inner{padding:20px 15px 22px}
   .question-kicker{align-items:flex-start}
   .question-badge{white-space:nowrap}
   .options{gap:10px;margin-top:22px}
-  .option{padding:13px 12px;min-height:88px}
+  .option{padding:13px 12px;min-height:92px}
   .option-en{font-size:.9rem}
   .option-sv{font-size:.76rem}
   .results{grid-template-columns:1fr 1fr}
@@ -505,6 +558,7 @@ h1{
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
 }
+
 </style>
 </head>
 <body>
@@ -540,6 +594,10 @@ h1{
         <button class="chapter-btn" type="button" role="menuitem" data-chapter="1.3">
           Chapter 1.3 • Multiplication of Fractions
           <span class="chapter-btn-sv" lang="sv">Kapitel 1.3 • Multiplikation av bråk</span>
+        </button>
+        <button class="chapter-btn" type="button" role="menuitem" data-chapter="1.4">
+          Chapter 1.4 • Division of Fractions
+          <span class="chapter-btn-sv" lang="sv">Kapitel 1.4 • Division av bråk</span>
         </button>
       </div>
     </div>
@@ -955,13 +1013,146 @@ const QUESTION_BANKS = {
         {en:"Division.",sv:"Division."}
       ]
     }
+  ],
+  "1.4": [
+    {
+      en:"What does dividing by a fraction mean?",
+      sv:"Vad betyder det att dividera med ett bråk?",
+      correct:{en:"It asks how many times the divisor fits into the dividend.",sv:"Det frågar hur många gånger divisorn ryms i dividenden."},
+      wrong:[
+        {en:"It asks you to add the two fractions together.",sv:"Det betyder att du ska addera de två bråken."},
+        {en:"It asks you to compare only the denominators.",sv:"Det betyder att du bara ska jämföra nämnarna."},
+        {en:"It asks you to make both fractions have the same numerator.",sv:"Det betyder att du ska ge båda bråken samma täljare."}
+      ]
+    },
+    {
+      en:"What is the Keep, Change, Flip method for dividing fractions?",
+      sv:"Vad är metoden Behåll, Byt, Vänd när du dividerar bråk?",
+      correct:{en:"Keep the first fraction, change division to multiplication, and flip the second fraction.",sv:"Behåll det första bråket, byt division till multiplikation och vänd det andra bråket."},
+      wrong:[
+        {en:"Flip both fractions and keep the division sign.",sv:"Vänd båda bråken och behåll divisionstecknet."},
+        {en:"Keep both fractions and change division to addition.",sv:"Behåll båda bråken och byt division till addition."},
+        {en:"Change the first fraction and keep the second fraction unchanged.",sv:"Ändra det första bråket och låt det andra vara oförändrat."}
+      ]
+    },
+    {
+      en:"When using Keep, Change, Flip, which fraction is flipped?",
+      sv:"Vilket bråk vänder du när du använder Behåll, Byt, Vänd?",
+      correct:{en:"The second fraction, the divisor.",sv:"Det andra bråket, divisorn."},
+      wrong:[
+        {en:"The first fraction, the dividend.",sv:"Det första bråket, dividenden."},
+        {en:"Both fractions.",sv:"Båda bråken."},
+        {en:"Neither fraction.",sv:"Inget av bråken."}
+      ]
+    },
+    {
+      en:"What does it mean to flip a fraction?",
+      sv:"Vad betyder det att vända ett bråk?",
+      correct:{en:"Interchange the numerator and denominator.",sv:"Byt plats på täljaren och nämnaren."},
+      wrong:[
+        {en:"Change the signs of the numerator and denominator.",sv:"Byt tecken på täljaren och nämnaren."},
+        {en:"Multiply the numerator and denominator by 2.",sv:"Multiplicera täljaren och nämnaren med 2."},
+        {en:"Swap the first fraction with the second fraction.",sv:"Byt plats på det första och det andra bråket."}
+      ]
+    },
+    {
+      en:"What is the reciprocal of a fraction?",
+      sv:"Vad är det reciproka värdet av ett bråk?",
+      correct:{en:"A fraction made by interchanging the numerator and denominator.",sv:"Ett bråk som du får genom att byta plats på täljaren och nämnaren."},
+      wrong:[
+        {en:"A fraction with the same numerator and denominator.",sv:"Ett bråk med samma täljare och nämnare."},
+        {en:"A fraction made by doubling the numerator and denominator.",sv:"Ett bråk som du får genom att dubbla täljaren och nämnaren."},
+        {en:"A fraction written as a decimal.",sv:"Ett bråk som har skrivits i decimalform."}
+      ]
+    },
+    {
+      en:"Why does multiplying by the reciprocal work when dividing fractions?",
+      sv:"Varför fungerar det att multiplicera med det reciproka värdet när man dividerar bråk?",
+      correct:{en:"It turns the divisor into 1, making the division easier to calculate.",sv:"Det gör divisorn till 1, vilket gör divisionen enklare att beräkna."},
+      wrong:[
+        {en:"It makes both denominators equal to 10.",sv:"Det gör båda nämnarna lika med 10."},
+        {en:"It changes the value of the quotient so the answer is larger.",sv:"Det ändrar kvotens värde så att svaret blir större."},
+        {en:"It removes the numerators from both fractions.",sv:"Det tar bort täljarna från båda bråken."}
+      ]
+    },
+    {
+      en:"When the divisor is multiplied by its reciprocal, what does it become?",
+      sv:"Vad blir divisorn när den multipliceras med sitt reciproka värde?",
+      correct:{en:"1",sv:"1"},
+      wrong:[
+        {en:"0",sv:"0"},
+        {en:"The original divisor",sv:"Den ursprungliga divisorn"},
+        {en:"The numerator of the divisor",sv:"Divisorns täljare"}
+      ]
+    },
+    {
+      en:"Why must the dividend also be multiplied by the reciprocal when simplifying a fraction division problem this way?",
+      sv:"Varför måste även dividenden multipliceras med det reciproka värdet när man förenklar en bråkdivision på detta sätt?",
+      correct:{en:"Because the numerator and denominator of the overall quotient must be multiplied by the same value so its value does not change.",sv:"För att täljaren och nämnaren i den övergripande kvoten måste multipliceras med samma värde så att kvotens värde inte förändras."},
+      wrong:[
+        {en:"Because only the dividend is allowed to change in division.",sv:"För att endast dividenden får ändras i en division."},
+        {en:"Because the dividend must always become 1.",sv:"För att dividenden alltid måste bli 1."},
+        {en:"Because multiplying only the divisor always gives the same quotient.",sv:"För att det alltid ger samma kvot om man bara multiplicerar divisorn."}
+      ]
+    },
+    {
+      en:"How can a whole number be written as a fraction before dividing fractions?",
+      sv:"Hur kan ett heltal skrivas som ett bråk innan du dividerar bråk?",
+      correct:{en:"Write the whole number over 1.",sv:"Skriv heltalet med 1 som nämnare."},
+      wrong:[
+        {en:"Write 1 over the whole number.",sv:"Skriv 1 över heltalet."},
+        {en:"Write the whole number over itself.",sv:"Skriv heltalet över sig självt."},
+        {en:"Write the whole number over 10.",sv:"Skriv heltalet med 10 som nämnare."}
+      ]
+    },
+    {
+      en:"What should you do with a mixed number before using Keep, Change, Flip?",
+      sv:"Vad ska du göra med ett tal i blandad form innan du använder Behåll, Byt, Vänd?",
+      correct:{en:"Rewrite it as an improper fraction.",sv:"Skriv om det till ett oäkta bråk."},
+      wrong:[
+        {en:"Remove the whole-number part.",sv:"Ta bort heltalsdelen."},
+        {en:"Change it to a decimal every time.",sv:"Skriv alltid om det till decimalform."},
+        {en:"Flip only the whole-number part.",sv:"Vänd bara heltalsdelen."}
+      ]
+    },
+    {
+      en:"After changing a division problem into multiplication using Keep, Change, Flip, how do you multiply the fractions?",
+      sv:"När du har gjort om divisionen till multiplikation med Behåll, Byt, Vänd, hur multiplicerar du bråken?",
+      correct:{en:"Multiply numerator by numerator and denominator by denominator.",sv:"Multiplicera täljare med täljare och nämnare med nämnare."},
+      wrong:[
+        {en:"Add the numerators and add the denominators.",sv:"Addera täljarna och addera nämnarna."},
+        {en:"Multiply the numerators but keep one denominator unchanged.",sv:"Multiplicera täljarna men behåll en nämnare oförändrad."},
+        {en:"Find a common denominator before multiplying.",sv:"Hitta en gemensam nämnare innan du multiplicerar."}
+      ]
+    },
+    {
+      en:"What should you do with the final answer if it can be simplified?",
+      sv:"Vad ska du göra med slutsvaret om det kan förenklas?",
+      correct:{en:"Reduce it to simplest form.",sv:"Förkorta det till enklaste form."},
+      wrong:[
+        {en:"Expand it until the denominator is 100.",sv:"Förläng det tills nämnaren är 100."},
+        {en:"Leave it unsimplified every time.",sv:"Låt det alltid vara oförenklat."},
+        {en:"Flip the final answer again.",sv:"Vänd slutsvaret en gång till."}
+      ]
+    },
+    {
+      en:"If the final answer is an improper fraction, how can it usually be written?",
+      sv:"Om slutsvaret är ett oäkta bråk, hur kan det vanligtvis skrivas?",
+      correct:{en:"As a mixed number.",sv:"I blandad form."},
+      wrong:[
+        {en:"As a prime number.",sv:"Som ett primtal."},
+        {en:"As a fraction with denominator 1 only.",sv:"Som ett bråk med endast nämnaren 1."},
+        {en:"As a negative number.",sv:"Som ett negativt tal."}
+      ]
+    }
   ]
 };
 
 const SECTIONS = {
   "1.1": { en:"Chapter 1.1 • Calculations with Fractions", sv:"Kapitel 1.1 • Beräkningar med bråk" },
   "1.2": { en:"Chapter 1.2 • Addition and Subtraction of Fractions", sv:"Kapitel 1.2 • Addition och subtraktion av bråk" },
-  "1.3": { en:"Chapter 1.3 • Multiplication of Fractions", sv:"Kapitel 1.3 • Multiplikation av bråk" }
+  "1.3": { en:"Chapter 1.3 • Multiplication of Fractions", sv:"Kapitel 1.3 • Multiplikation av bråk" },
+  "1.4": { en:"Chapter 1.4 • Division of Fractions", sv:"Kapitel 1.4 • Division av bråk" }
 };
 
 const QUIZ_SIZE = 10;
